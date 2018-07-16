@@ -3,12 +3,13 @@ import fs from 'fs-extra'
 exports.onCreateNode = require(`./on-node-create`)
 exports.setFieldsOnGraphQLNodeType = require(`./extend-node-type`)
 
+// Check if there are any ImageCloudinary nodes and if gatsby-image is installed. If so
+// add fragments for ImageCloudinary and gatsby-image. The fragment will cause an error
+// if there's not ImageCloudinary nodes and without gatsby-image, the fragment is useless.
+// In the case there are no ImageCloudinary nodes then this function does nothing.
 exports.onPreExtractQueries = async ({ store, getNodes }) => {
     const program = store.getState().program
 
-    // Check if there are any ImageCloudinary nodes and if gatsby-image is installed. If so
-    // add fragments for ImageCloudinary and gatsby-image. The fragment will cause an error
-    // if there's not ImageCloudinary nodes and without gatsby-image, the fragment is useless.
     const nodes = getNodes()
 
     if (!nodes.some(n => n.internal.type === `ImageCloudinary`)) {
