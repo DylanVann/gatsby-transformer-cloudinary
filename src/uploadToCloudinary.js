@@ -1,9 +1,9 @@
-import cloudinary from 'cloudinary'
+import cloudinary from './cloudinary'
 
 cloudinary.config({
-    cloud_name: '',
-    api_key: '',
-    api_secret: '',
+    cloud_name: 'dylanvann-com',
+    api_key: '521793315122256',
+    api_secret: 'FHMBuCMCCHCLekQ-E2JqI8GnEwA',
 })
 
 export default (id, absolutePath) =>
@@ -14,9 +14,6 @@ export default (id, absolutePath) =>
                 public_id: id,
             },
             (error, result) => {
-                console.log('----------------')
-                console.log(result, error)
-                console.log('----------------')
                 if (error) reject(error)
                 resolve(result)
             },

@@ -1,6 +1,7 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { fluid } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
+import uploadToCloudinary from './uploadToCloudinary'
 
 export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
     return {
@@ -27,8 +28,8 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
              * will perform transformations on that public_id.
              *
              * This must also provide:
-             * - originalName
-             * - originalSrc
+             * - width
+             * - height
              * - aspectRatio
              * - base64
              * - sizes
@@ -39,19 +40,15 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
                 image.parent,
                 context.path,
             )
-            const args = { ...fieldArgs, pathPrefix }
             const id = file.id
             const path = file.absolutePath
-            const data = await fluid({
-                file,
-                args,
-                reporter,
-            })
-            return Object.assign({}, data, {
-                fieldArgs: args,
-                image,
-                file,
-            })
+            const data = await uploadToCloudinary(id, path)
+            return {
+                id: data.public_id,
+                width: data.width,
+                height: data.height,
+                aspectRatio: data.width / data.height,
+            }
         },
     }
 }
