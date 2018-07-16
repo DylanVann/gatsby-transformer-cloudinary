@@ -286,7 +286,7 @@ module.exports = ({
   getNodeAndSavePathDependency,
   reporter,
 }) => {
-  if (type.name !== `ImageSharp`) {
+  if (type.name !== `ImageCloudinary`) {
     return {}
   }
 
@@ -298,15 +298,15 @@ module.exports = ({
   }
 
   // TODO: Remove resolutionsNode and sizesNode for Gatsby v3
-  const fixedNode = fixedNodeType({ name: `ImageSharpFixed`, ...nodeOptions })
+  const fixedNode = fixedNodeType({ name: `ImageCloudinaryFixed`, ...nodeOptions })
   const resolutionsNode = fixedNodeType({
-    name: `ImageSharpResolutions`,
+    name: `ImageCloudinaryResolutions`,
     ...nodeOptions,
   })
   resolutionsNode.deprecationReason = `Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link`
 
-  const fluidNode = fluidNodeType({ name: `ImageSharpFluid`, ...nodeOptions })
-  const sizesNode = fluidNodeType({ name: `ImageSharpSizes`, ...nodeOptions })
+  const fluidNode = fluidNodeType({ name: `ImageCloudinaryFluid`, ...nodeOptions })
+  const sizesNode = fluidNodeType({ name: `ImageCloudinarySizes`, ...nodeOptions })
   sizesNode.deprecationReason = `Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link`
 
   return {
@@ -316,7 +316,7 @@ module.exports = ({
     sizes: sizesNode,
     original: {
       type: new GraphQLObjectType({
-        name: `ImageSharpOriginal`,
+        name: `ImageCloudinaryOriginal`,
         fields: {
           width: { type: GraphQLFloat },
           height: { type: GraphQLFloat },
@@ -361,7 +361,7 @@ module.exports = ({
     },
     resize: {
       type: new GraphQLObjectType({
-        name: `ImageSharpResize`,
+        name: `ImageCloudinaryResize`,
         fields: {
           src: { type: GraphQLString },
           tracedSVG: {

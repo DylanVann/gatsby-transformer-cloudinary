@@ -1,6 +1,6 @@
 # gatsby-transformer-sharp
 
-Creates `ImageSharp` nodes from image types that are supported by the
+Creates `ImageCloudinary` nodes from image types that are supported by the
 [Sharp](https://github.com/lovell/sharp) image processing library and provides
 fields in their GraphQL types for processing your images in a variety of ways
 including resizing, cropping, and creating responsive images.
@@ -32,4 +32,4 @@ It recognizes files with the following extensions as images.
 - tif
 - tiff
 
-Each image file is parsed into a node of type `ImageSharp`.
+Each image file is parsed into a node of type `ImageCloudinary`.

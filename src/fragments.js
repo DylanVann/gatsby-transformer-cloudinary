@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { graphql } from "gatsby"
 
-export const gatsbyImageSharpFixed = graphql`
-  fragment GatsbyImageSharpFixed on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixed = graphql`
+  fragment GatsbyImageCloudinaryFixed on ImageCloudinaryFixed {
     base64
     width
     height
@@ -11,8 +11,8 @@ export const gatsbyImageSharpFixed = graphql`
   }
 `
 
-export const gatsbyImageSharpFixedTracedSVG = graphql`
-  fragment GatsbyImageSharpFixed_tracedSVG on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixedTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryFixed_tracedSVG on ImageCloudinaryFixed {
     tracedSVG
     width
     height
@@ -21,8 +21,8 @@ export const gatsbyImageSharpFixedTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpFixedPreferWebp = graphql`
-  fragment GatsbyImageSharpFixed_withWebp on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixedPreferWebp = graphql`
+  fragment GatsbyImageCloudinaryFixed_withWebp on ImageCloudinaryFixed {
     base64
     width
     height
@@ -33,8 +33,8 @@ export const gatsbyImageSharpFixedPreferWebp = graphql`
   }
 `
 
-export const gatsbyImageSharpFixedPreferWebpTracedSVG = graphql`
-  fragment GatsbyImageSharpFixed_withWebp_tracedSVG on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixedPreferWebpTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryFixed_withWebp_tracedSVG on ImageCloudinaryFixed {
     tracedSVG
     width
     height
@@ -45,8 +45,8 @@ export const gatsbyImageSharpFixedPreferWebpTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpFixedNoBase64 = graphql`
-  fragment GatsbyImageSharpFixed_noBase64 on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixedNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryFixed_noBase64 on ImageCloudinaryFixed {
     width
     height
     src
@@ -54,8 +54,8 @@ export const gatsbyImageSharpFixedNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpFixedPreferWebpNoBase64 = graphql`
-  fragment GatsbyImageSharpFixed_withWebp_noBase64 on ImageSharpFixed {
+export const gatsbyImageCloudinaryFixedPreferWebpNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryFixed_withWebp_noBase64 on ImageCloudinaryFixed {
     width
     height
     src
@@ -65,8 +65,8 @@ export const gatsbyImageSharpFixedPreferWebpNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpFluid = graphql`
-  fragment GatsbyImageSharpFluid on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluid = graphql`
+  fragment GatsbyImageCloudinaryFluid on ImageCloudinaryFluid {
     base64
     aspectRatio
     src
@@ -75,8 +75,8 @@ export const gatsbyImageSharpFluid = graphql`
   }
 `
 
-export const gatsbyImageSharpFluidTracedSVG = graphql`
-  fragment GatsbyImageSharpFluid_tracedSVG on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluidTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryFluid_tracedSVG on ImageCloudinaryFluid {
     tracedSVG
     aspectRatio
     src
@@ -85,8 +85,8 @@ export const gatsbyImageSharpFluidTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpFluidPreferWebp = graphql`
-  fragment GatsbyImageSharpFluid_withWebp on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluidPreferWebp = graphql`
+  fragment GatsbyImageCloudinaryFluid_withWebp on ImageCloudinaryFluid {
     base64
     aspectRatio
     src
@@ -97,8 +97,8 @@ export const gatsbyImageSharpFluidPreferWebp = graphql`
   }
 `
 
-export const gatsbyImageSharpFluidPreferWebpTracedSVG = graphql`
-  fragment GatsbyImageSharpFluid_withWebp_tracedSVG on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluidPreferWebpTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryFluid_withWebp_tracedSVG on ImageCloudinaryFluid {
     tracedSVG
     aspectRatio
     src
@@ -109,8 +109,8 @@ export const gatsbyImageSharpFluidPreferWebpTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpFluidNoBase64 = graphql`
-  fragment GatsbyImageSharpFluid_noBase64 on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluidNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryFluid_noBase64 on ImageCloudinaryFluid {
     aspectRatio
     src
     srcSet
@@ -118,8 +118,8 @@ export const gatsbyImageSharpFluidNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpFluidPreferWebpNoBase64 = graphql`
-  fragment GatsbyImageSharpFluid_withWebp_noBase64 on ImageSharpFluid {
+export const gatsbyImageCloudinaryFluidPreferWebpNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryFluid_withWebp_noBase64 on ImageCloudinaryFluid {
     aspectRatio
     src
     srcSet
@@ -130,8 +130,8 @@ export const gatsbyImageSharpFluidPreferWebpNoBase64 = graphql`
 `
 
 // TODO: in v3 remove these legacy fragments
-export const gatsbyImageSharpResolutions = graphql`
-  fragment GatsbyImageSharpResolutions on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutions = graphql`
+  fragment GatsbyImageCloudinaryResolutions on ImageCloudinaryResolutions {
     base64
     width
     height
@@ -140,8 +140,8 @@ export const gatsbyImageSharpResolutions = graphql`
   }
 `
 
-export const gatsbyImageSharpResolutionsTracedSVG = graphql`
-  fragment GatsbyImageSharpResolutions_tracedSVG on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutionsTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryResolutions_tracedSVG on ImageCloudinaryResolutions {
     tracedSVG
     width
     height
@@ -150,8 +150,8 @@ export const gatsbyImageSharpResolutionsTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpResolutionsPreferWebp = graphql`
-  fragment GatsbyImageSharpResolutions_withWebp on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutionsPreferWebp = graphql`
+  fragment GatsbyImageCloudinaryResolutions_withWebp on ImageCloudinaryResolutions {
     base64
     width
     height
@@ -162,8 +162,8 @@ export const gatsbyImageSharpResolutionsPreferWebp = graphql`
   }
 `
 
-export const gatsbyImageSharpResolutionsPreferWebpTracedSVG = graphql`
-  fragment GatsbyImageSharpResolutions_withWebp_tracedSVG on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutionsPreferWebpTracedSVG = graphql`
+  fragment GatsbyImageCloudinaryResolutions_withWebp_tracedSVG on ImageCloudinaryResolutions {
     tracedSVG
     width
     height
@@ -174,8 +174,8 @@ export const gatsbyImageSharpResolutionsPreferWebpTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpResolutionsNoBase64 = graphql`
-  fragment GatsbyImageSharpResolutions_noBase64 on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutionsNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryResolutions_noBase64 on ImageCloudinaryResolutions {
     width
     height
     src
@@ -183,8 +183,8 @@ export const gatsbyImageSharpResolutionsNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpResolutionsPreferWebpNoBase64 = graphql`
-  fragment GatsbyImageSharpResolutions_withWebp_noBase64 on ImageSharpResolutions {
+export const gatsbyImageCloudinaryResolutionsPreferWebpNoBase64 = graphql`
+  fragment GatsbyImageCloudinaryResolutions_withWebp_noBase64 on ImageCloudinaryResolutions {
     width
     height
     src
@@ -194,8 +194,8 @@ export const gatsbyImageSharpResolutionsPreferWebpNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpSizes = graphql`
-  fragment GatsbyImageSharpSizes on ImageSharpSizes {
+export const gatsbyImageCloudinarySizes = graphql`
+  fragment GatsbyImageCloudinarySizes on ImageCloudinarySizes {
     base64
     aspectRatio
     src
@@ -204,8 +204,8 @@ export const gatsbyImageSharpSizes = graphql`
   }
 `
 
-export const gatsbyImageSharpSizesTracedSVG = graphql`
-  fragment GatsbyImageSharpSizes_tracedSVG on ImageSharpSizes {
+export const gatsbyImageCloudinarySizesTracedSVG = graphql`
+  fragment GatsbyImageCloudinarySizes_tracedSVG on ImageCloudinarySizes {
     tracedSVG
     aspectRatio
     src
@@ -214,8 +214,8 @@ export const gatsbyImageSharpSizesTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpSizesPreferWebp = graphql`
-  fragment GatsbyImageSharpSizes_withWebp on ImageSharpSizes {
+export const gatsbyImageCloudinarySizesPreferWebp = graphql`
+  fragment GatsbyImageCloudinarySizes_withWebp on ImageCloudinarySizes {
     base64
     aspectRatio
     src
@@ -226,8 +226,8 @@ export const gatsbyImageSharpSizesPreferWebp = graphql`
   }
 `
 
-export const gatsbyImageSharpSizesPreferWebpTracedSVG = graphql`
-  fragment GatsbyImageSharpSizes_withWebp_tracedSVG on ImageSharpSizes {
+export const gatsbyImageCloudinarySizesPreferWebpTracedSVG = graphql`
+  fragment GatsbyImageCloudinarySizes_withWebp_tracedSVG on ImageCloudinarySizes {
     tracedSVG
     aspectRatio
     src
@@ -238,8 +238,8 @@ export const gatsbyImageSharpSizesPreferWebpTracedSVG = graphql`
   }
 `
 
-export const gatsbyImageSharpSizesNoBase64 = graphql`
-  fragment GatsbyImageSharpSizes_noBase64 on ImageSharpSizes {
+export const gatsbyImageCloudinarySizesNoBase64 = graphql`
+  fragment GatsbyImageCloudinarySizes_noBase64 on ImageCloudinarySizes {
     aspectRatio
     src
     srcSet
@@ -247,8 +247,8 @@ export const gatsbyImageSharpSizesNoBase64 = graphql`
   }
 `
 
-export const gatsbyImageSharpSizesPreferWebpNoBase64 = graphql`
-  fragment GatsbyImageSharpSizes_withWebp_noBase64 on ImageSharpSizes {
+export const gatsbyImageCloudinarySizesPreferWebpNoBase64 = graphql`
+  fragment GatsbyImageCloudinarySizes_withWebp_noBase64 on ImageCloudinarySizes {
     aspectRatio
     src
     srcSet

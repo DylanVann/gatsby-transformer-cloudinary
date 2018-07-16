@@ -9,12 +9,12 @@ module.exports = async function onCreateNode({ node, actions, createNodeId }) {
   }
 
   const imageNode = {
-    id: createNodeId(`${node.id} >> ImageSharp`),
+    id: createNodeId(`${node.id} >> ImageCloudinary`),
     children: [],
     parent: node.id,
     internal: {
       contentDigest: `${node.internal.contentDigest}`,
-      type: `ImageSharp`,
+      type: `ImageCloudinary`,
     },
   }
 

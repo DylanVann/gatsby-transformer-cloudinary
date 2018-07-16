@@ -1,7 +1,7 @@
 const { onCreateNode } = require(`../gatsby-node`)
 
 describe(`Process image nodes correctly`, () => {
-  it(`correctly creates an ImageSharp node from a file image node`, async () => {
+  it(`correctly creates an ImageCloudinary node from a file image node`, async () => {
     const node = {
       extension: `png`,
       id: `whatever`,
