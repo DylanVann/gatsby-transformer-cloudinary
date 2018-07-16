@@ -30,7 +30,7 @@ exports.onPreExtractQueries = async ({ store, getNodes }) => {
   // We have both gatsby-image installed as well as ImageCloudinary nodes so let's
   // add our fragments to .cache/fragments.
   await fs.copy(
-    require.resolve(`gatsby-transformer-sharp/src/fragments.js`),
-    `${program.directory}/.cache/fragments/image-sharp-fragments.js`
+    require.resolve(`@dylanvann/gatsby-transformer-cloudinary/src/fragments.js`),
+    `${program.directory}/.cache/fragments/image-cloudinary-fragments.js`
   )
 }
