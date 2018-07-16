@@ -1,23 +1,26 @@
-# gatsby-transformer-sharp
+# gatsby-transformer-cloudinary
 
-Creates `ImageCloudinary` nodes from image types that are supported by the
-[Sharp](https://github.com/lovell/sharp) image processing library and provides
-fields in their GraphQL types for processing your images in a variety of ways
-including resizing, cropping, and creating responsive images.
+Creates `ImageCloudinary` nodes from supported image types.
 
-[Live demo](https://image-processing.gatsbyjs.org/)
-([source](https://github.com/gatsbyjs/gatsby/tree/master/examples/image-processing))
+This transformer will upload the image once with an id.
+After that depending on the types you want to extract from it it
+will apply transformations on it using Cloudinary.
 
 ## Install
 
-`npm install --save gatsby-transformer-sharp`
+```bash
+npm install gatsby-transformer-cloudinary
+yarn add gatsby-transformer-cloudinary
+```
 
 ## How to use
 
-```javascript
+```js
 // In your gatsby-config.js
 module.exports = {
-  plugins: [`gatsby-transformer-sharp`],
+  plugins: [
+      `gatsby-transformer-cloudinary`
+  ],
 }
 ```
 
@@ -31,5 +34,8 @@ It recognizes files with the following extensions as images.
 - webp
 - tif
 - tiff
+- gif
+- mp4
+- webm
 
 Each image file is parsed into a node of type `ImageCloudinary`.
