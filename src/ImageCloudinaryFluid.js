@@ -21,6 +21,20 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
             },
         },
         resolve: async (image, fieldArgs, context) => {
+            /**
+             * This function has to provide the public_id
+             * of the uploaded image. Then other resolve functions
+             * will perform transformations on that public_id.
+             *
+             * This must also provide:
+             * - originalName
+             * - originalSrc
+             * - aspectRatio
+             * - base64
+             * - sizes
+             *
+             * All the transformations will return remote urls on cloudinary.
+             */
             const file = getNodeAndSavePathDependency(
                 image.parent,
                 context.path,

@@ -6,8 +6,8 @@ const getSrcDescription = format => `Image src in ${format} format.`
 const getSrcSetDescription = format => `Image srcset in ${format} format.`
 
 export const commonFields = ({ reporter }) => ({
-    originalImg: { type: GraphQLString },
     originalName: { type: GraphQLString },
+    originalSrc: { type: GraphQLString },
     aspectRatio: {
         type: GraphQLFloat,
         description: oneLine`
