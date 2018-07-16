@@ -1,6 +1,7 @@
 import { GraphQLString, GraphQLFloat } from 'gatsby/graphql'
+import { fixed } from 'gatsby-plugin-sharp'
 
-export const commonFields = {
+export const commonFields = ({ pathPrefix, reporter }) => ({
     originalImg: { type: GraphQLString },
     originalName: { type: GraphQLString },
     /**
@@ -27,8 +28,30 @@ export const commonFields = {
     src: { type: GraphQLString },
     srcSet: { type: GraphQLString },
     // webp
-    srcWebP: { type: GraphQLString },
-    srcSetWebP: { type: GraphQLString },
+    srcWebP: {
+        type: GraphQLString,
+        resolve: async ({ file, image, fieldArgs }) => {
+            const args = { ...fieldArgs, pathPrefix, toFormat: `webp` }
+            const data = await fixed({
+                file,
+                args,
+                reporter,
+            })
+            return data.src
+        },
+    },
+    srcSetWebP: {
+        type: GraphQLString,
+        resolve: async ({ file, image, fieldArgs }) => {
+            const args = { ...fieldArgs, pathPrefix, toFormat: `webp` }
+            const data = await fixed({
+                file,
+                args,
+                reporter,
+            })
+            return data.srcSet
+        },
+    },
     // mp4
     srcMp4: { type: GraphQLString },
     srcSetMp4: { type: GraphQLString },
@@ -38,4 +61,4 @@ export const commonFields = {
     // gif
     srcGif: { type: GraphQLString },
     srcSetGif: { type: GraphQLString },
-}
+})

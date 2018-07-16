@@ -4,6 +4,14 @@ import fsExtra from 'fs-extra'
 import imageSize from 'probe-image-size'
 import path from 'path'
 
+function toArray(buf) {
+    let arr = new Array(buf.length)
+    for (let i = 0; i < buf.length; i++) {
+        arr[i] = buf[i]
+    }
+    return arr
+}
+
 export default ({ pathPrefix, getNodeAndSavePathDependency }) => ({
     args: {},
     type: new GraphQLObjectType({

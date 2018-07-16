@@ -15,7 +15,7 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
                     type: GraphQLFloat,
                     description: 'The original height of the image.',
                 },
-                ...commonFields,
+                ...commonFields({ pathPrefix, reporter }),
             },
         }),
         args: {

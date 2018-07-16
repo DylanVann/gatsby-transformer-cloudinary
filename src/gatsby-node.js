@@ -1,7 +1,9 @@
 import fs from 'fs-extra'
+import onCreateNode from './on-node-create'
+import extendNodeType from './extend-node-type'
 
-exports.onCreateNode = require(`./on-node-create`)
-exports.setFieldsOnGraphQLNodeType = require(`./extend-node-type`)
+exports.onCreateNode = onCreateNode
+exports.setFieldsOnGraphQLNodeType = extendNodeType
 
 // Check if there are any ImageCloudinary nodes and if gatsby-image is installed. If so
 // add fragments for ImageCloudinary and gatsby-image. The fragment will cause an error

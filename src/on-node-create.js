@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export default async function onCreateNode({ node, actions, createNodeId }) {
+export default ({ node, actions, createNodeId }) => {
     const { createNode, createParentChildLink } = actions
 
     const extensions = [

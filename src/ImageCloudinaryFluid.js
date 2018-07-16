@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLInt } from 'gatsby/graphql'
+import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { fluid } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
 
@@ -7,7 +7,8 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFluid',
             fields: {
-                ...commonFields,
+                ...commonFields({ pathPrefix, reporter }),
+                sizes: { type: GraphQLString },
             },
         }),
         args: {
