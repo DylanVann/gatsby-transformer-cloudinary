@@ -1,7 +1,6 @@
 import { GraphQLString, GraphQLFloat } from 'gatsby/graphql'
 import { fixed } from 'gatsby-plugin-sharp'
 import { oneLine } from 'common-tags'
-import cloudinary from './cloudinary'
 
 const getSrcDescription = format => `Image src in ${format} format.`
 const getSrcSetDescription = format => `Image srcset in ${format} format.`
@@ -9,7 +8,7 @@ const getSrcSetDescription = format => `Image srcset in ${format} format.`
 const getResolveToFormat = format => ({ id }) =>
     cloudinary.url(id, { format, secure: true })
 
-export const commonFields = ({ reporter }) => ({
+export const commonFields = ({ cloudinary }) => ({
     width: {
         type: GraphQLFloat,
         description: 'The original width of the image.',

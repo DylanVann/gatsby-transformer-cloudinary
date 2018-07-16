@@ -3,12 +3,17 @@ import { fixed } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
 import uploadToCloudinary from './uploadToCloudinary'
 
-export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
+export default ({
+    pathPrefix,
+    getNodeAndSavePathDependency,
+    reporter,
+    cloudinary,
+}) => {
     return {
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFixed',
             fields: {
-                ...commonFields({ pathPrefix, reporter }),
+                ...commonFields({ pathPrefix, reporter, cloudinary }),
             },
         }),
         args: {

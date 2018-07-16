@@ -20,7 +20,14 @@ yarn add gatsby-transformer-cloudinary
 // In your gatsby-config.js
 module.exports = {
   plugins: [
-      `gatsby-transformer-cloudinary`
+        {
+            resolve: 'gatsby-transformer-cloudinary',
+            options: {
+                cloudName: '...',
+                apiKey: '...',
+                apiSecret: '...',
+            }
+        },
   ],
 }
 ```

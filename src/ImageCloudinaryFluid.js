@@ -3,12 +3,17 @@ import { fluid } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
 import uploadToCloudinary from './uploadToCloudinary'
 
-export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
+export default ({
+    pathPrefix,
+    getNodeAndSavePathDependency,
+    reporter,
+    cloudinary,
+}) => {
     return {
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFluid',
             fields: {
-                ...commonFields({ pathPrefix, reporter }),
+                ...commonFields({ pathPrefix, reporter, cloudinary }),
                 sizes: { type: GraphQLString },
             },
         }),
