@@ -3,7 +3,14 @@ import { GraphQLString, GraphQLFloat } from 'gatsby/graphql'
 export const commonFields = {
     originalImg: { type: GraphQLString },
     originalName: { type: GraphQLString },
+    /**
+     * The aspect ratio. Can be used to ensure space is reserved for the image.
+     * This way there will not be page jank when the image loads.
+     */
     aspectRatio: { type: GraphQLFloat },
+    /**
+     * A base64 version of the image or video. Can be used as a placeholder.
+     */
     base64: { type: GraphQLString },
     /**
      * Formats.
