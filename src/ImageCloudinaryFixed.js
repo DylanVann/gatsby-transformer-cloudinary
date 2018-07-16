@@ -7,8 +7,14 @@ export default ({ pathPrefix, getNodeAndSavePathDependency, reporter }) => {
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFixed',
             fields: {
-                width: { type: GraphQLFloat },
-                height: { type: GraphQLFloat },
+                width: {
+                    type: GraphQLFloat,
+                    description: 'The original width of the image.',
+                },
+                height: {
+                    type: GraphQLFloat,
+                    description: 'The original height of the image.',
+                },
                 ...commonFields,
             },
         }),
