@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-transformer-sharp",
-  "description": "Gatsby transformer plugin for images using Sharp",
-  "version": "2.1.1-beta.3",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "@dylanvann/gatsby-transformer-cloudinary",
+  "description": "Gatsby transformer plugin for images using Cloudinary",
+  "version": "1.0.0",
+  "author": "Dylan Vann <dylan@dylanvann.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
