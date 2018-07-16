@@ -297,23 +297,12 @@ module.exports = ({
     reporter,
   }
 
-  // TODO: Remove resolutionsNode and sizesNode for Gatsby v3
   const fixedNode = fixedNodeType({ name: `ImageCloudinaryFixed`, ...nodeOptions })
-  const resolutionsNode = fixedNodeType({
-    name: `ImageCloudinaryResolutions`,
-    ...nodeOptions,
-  })
-  resolutionsNode.deprecationReason = `Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link`
-
   const fluidNode = fluidNodeType({ name: `ImageCloudinaryFluid`, ...nodeOptions })
-  const sizesNode = fluidNodeType({ name: `ImageCloudinarySizes`, ...nodeOptions })
-  sizesNode.deprecationReason = `Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link`
 
   return {
     fixed: fixedNode,
-    resolutions: resolutionsNode,
     fluid: fluidNode,
-    sizes: sizesNode,
     original: {
       type: new GraphQLObjectType({
         name: `ImageCloudinaryOriginal`,
