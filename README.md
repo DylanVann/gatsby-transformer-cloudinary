@@ -10,6 +10,7 @@ will apply transformations on it using Cloudinary.
 
 ```bash
 npm install gatsby-transformer-cloudinary
+# or
 yarn add gatsby-transformer-cloudinary
 ```
 
