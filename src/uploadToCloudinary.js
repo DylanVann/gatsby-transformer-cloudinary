@@ -6,16 +6,19 @@ cloudinary.config({
     api_secret: '',
 })
 
-export default absolutePath =>
+export default (id, absolutePath) =>
     new Promise((resolve, reject) =>
-        cloudinary.v2.uploader.upload(absolutePath, {}, function(
-            error,
-            result,
-        ) {
-            console.log('----------------')
-            console.log(result, error)
-            console.log('----------------')
-            if (error) reject(error)
-            resolve(result)
-        }),
+        cloudinary.v2.uploader.upload(
+            absolutePath,
+            {
+                public_id: id,
+            },
+            (error, result) => {
+                console.log('----------------')
+                console.log(result, error)
+                console.log('----------------')
+                if (error) reject(error)
+                resolve(result)
+            },
+        ),
     )
