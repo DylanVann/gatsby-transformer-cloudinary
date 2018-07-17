@@ -1,5 +1,4 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
-import { fluid } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
 import { upload } from './cloudinary'
 
@@ -36,7 +35,6 @@ export default ({
              * - width
              * - height
              * - aspectRatio
-             * - base64
              * - sizes
              *
              * All the transformations will return remote urls on cloudinary.
