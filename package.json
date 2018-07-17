@@ -9,7 +9,6 @@
   "dependencies": {
     "cloudinary": "^1.11.0",
     "common-tags": "^1.8.0",
-    "fast-html-parser": "^1.0.1",
     "fs-extra": "^4.0.2",
     "html-parser": "^0.11.0",
     "lodash": "^4.17.10",
