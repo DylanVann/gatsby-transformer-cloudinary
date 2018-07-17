@@ -53,6 +53,8 @@ export default ({
                 width: data.width,
                 height: data.height,
                 aspectRatio: data.width / data.height,
+                maxWidth: fieldArgs.maxWidth,
+                maxHeight: fieldArgs.maxHeight,
             }
         },
     }
