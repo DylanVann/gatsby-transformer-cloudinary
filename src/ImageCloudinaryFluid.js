@@ -1,6 +1,7 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { commonFields } from './commonFields'
-import { upload } from './cloudinary'
+import { isVideo, upload } from './cloudinary'
+import { parseVideo } from './parseVideo'
 
 export default ({
     pathPrefix,
@@ -48,14 +49,28 @@ export default ({
             const data = await upload(cloudinary)(id, path)
             const presentationWidth = Math.min(fieldArgs.maxWidth, data.width)
             const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
+            const videoTag =
+                isVideo(path) &&
+                cloudinary.video(id, { width: presentationWidth })
+            let videoData = {}
+            if (videoTag) {
+                videoData = parseVideo(videoTag)
+            }
             return {
+                // internal
                 id,
                 path,
+                maxWidth: fieldArgs.maxWidth,
+                maxHeight: fieldArgs.maxHeight,
+                // dimensions
                 width: data.width,
                 height: data.height,
                 aspectRatio: data.width / data.height,
-                maxWidth: fieldArgs.maxWidth,
-                maxHeight: fieldArgs.maxHeight,
+                // video
+                srcVideoPoster: videoData.jpg,
+                srcVideoMp4: videoData.mp4,
+                srcVideoWebm: videoData.webm,
+                srcVideoOgg: videoData.ogv,
                 sizes,
             }
         },

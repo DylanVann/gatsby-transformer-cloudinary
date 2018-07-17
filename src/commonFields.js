@@ -93,6 +93,17 @@ export const commonFields = ({ cloudinary }) => {
             description: 'Keep original format but optimize quality.',
             resolve: getResolveSrcSet(),
         },
+        // jpg
+        srcJpg: {
+            type: GraphQLString,
+            description: getSrcDescription('JPG'),
+            resolve: getResolveSrc('jpg'),
+        },
+        srcSetJpg: {
+            type: GraphQLString,
+            description: getSrcSetDescription('JPG'),
+            resolve: getResolveSrcSet('jpg'),
+        },
         // png
         srcPng: {
             type: GraphQLString,
@@ -115,38 +126,28 @@ export const commonFields = ({ cloudinary }) => {
             description: getSrcSetDescription('Webp'),
             resolve: getResolveSrcSet('webp'),
         },
+        //----------------------------------------
+        // video
+        //----------------------------------------
+        // jpg
+        srcVideoPoster: {
+            type: GraphQLString,
+            description: 'A poster for the video.',
+        },
         // mp4
-        srcMp4: {
+        srcVideoMp4: {
             type: GraphQLString,
             description: getSrcDescription('MP4'),
-            resolve: getResolveSrc('mp4'),
-        },
-        srcSetMp4: {
-            type: GraphQLString,
-            description: getSrcSetDescription('MP4'),
-            resolve: getResolveSrcSet('mp4'),
         },
         // webm
-        srcWebm: {
+        srcVideoWebm: {
             type: GraphQLString,
             description: getSrcDescription('Webm'),
-            resolve: getResolveSrc('webm'),
         },
-        srcSetWebm: {
+        // ogg
+        srcVideoOgg: {
             type: GraphQLString,
-            description: getSrcSetDescription('Webm'),
-            resolve: getResolveSrcSet('webm'),
-        },
-        // gif
-        srcGif: {
-            type: GraphQLString,
-            description: getSrcDescription('GIF'),
-            resolve: getResolveSrc('gif'),
-        },
-        srcSetGif: {
-            type: GraphQLString,
-            description: getSrcSetDescription('GIF'),
-            resolve: getResolveSrcSet('gif'),
+            description: getSrcDescription('Ogg'),
         },
     }
 }
