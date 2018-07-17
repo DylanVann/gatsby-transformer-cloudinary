@@ -20,26 +20,26 @@ export const gatsbyImageCloudinaryFixedTracedSVG = graphql`
     }
 `
 
-export const gatsbyImageCloudinaryFixedPreferWebP = graphql`
-    fragment GatsbyImageCloudinaryFixed_withWebP on ImageCloudinaryFixed {
+export const gatsbyImageCloudinaryFixedPreferWebp = graphql`
+    fragment GatsbyImageCloudinaryFixed_withWebp on ImageCloudinaryFixed {
         base64
         width
         height
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
     }
 `
 
-export const gatsbyImageCloudinaryFixedPreferWebPTracedSVG = graphql`
-    fragment GatsbyImageCloudinaryFixed_withWebP_tracedSVG on ImageCloudinaryFixed {
+export const gatsbyImageCloudinaryFixedPreferWebpTracedSVG = graphql`
+    fragment GatsbyImageCloudinaryFixed_withWebp_tracedSVG on ImageCloudinaryFixed {
         width
         height
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
     }
 `
 
@@ -52,14 +52,14 @@ export const gatsbyImageCloudinaryFixedNoBase64 = graphql`
     }
 `
 
-export const gatsbyImageCloudinaryFixedPreferWebPNoBase64 = graphql`
-    fragment GatsbyImageCloudinaryFixed_withWebP_noBase64 on ImageCloudinaryFixed {
+export const gatsbyImageCloudinaryFixedPreferWebpNoBase64 = graphql`
+    fragment GatsbyImageCloudinaryFixed_withWebp_noBase64 on ImageCloudinaryFixed {
         width
         height
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
     }
 `
 
@@ -82,25 +82,25 @@ export const gatsbyImageCloudinaryFluidTracedSVG = graphql`
     }
 `
 
-export const gatsbyImageCloudinaryFluidPreferWebP = graphql`
-    fragment GatsbyImageCloudinaryFluid_withWebP on ImageCloudinaryFluid {
+export const gatsbyImageCloudinaryFluidPreferWebp = graphql`
+    fragment GatsbyImageCloudinaryFluid_withWebp on ImageCloudinaryFluid {
         base64
         aspectRatio
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
         sizes
     }
 `
 
-export const gatsbyImageCloudinaryFluidPreferWebPTracedSVG = graphql`
-    fragment GatsbyImageCloudinaryFluid_withWebP_tracedSVG on ImageCloudinaryFluid {
+export const gatsbyImageCloudinaryFluidPreferWebpTracedSVG = graphql`
+    fragment GatsbyImageCloudinaryFluid_withWebp_tracedSVG on ImageCloudinaryFluid {
         aspectRatio
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
         sizes
     }
 `
@@ -114,13 +114,13 @@ export const gatsbyImageCloudinaryFluidNoBase64 = graphql`
     }
 `
 
-export const gatsbyImageCloudinaryFluidPreferWebPNoBase64 = graphql`
-    fragment GatsbyImageCloudinaryFluid_withWebP_noBase64 on ImageCloudinaryFluid {
+export const gatsbyImageCloudinaryFluidPreferWebpNoBase64 = graphql`
+    fragment GatsbyImageCloudinaryFluid_withWebp_noBase64 on ImageCloudinaryFluid {
         aspectRatio
         src
         srcSet
-        srcWebP
-        srcSetWebP
+        srcWebp
+        srcSetWebp
         sizes
     }
 `

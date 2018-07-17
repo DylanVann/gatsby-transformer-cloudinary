@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { fluid } from 'gatsby-plugin-sharp'
 import { commonFields } from './commonFields'
-import uploadToCloudinary from './uploadToCloudinary'
+import { upload } from './cloudinary'
 
 export default ({
     pathPrefix,
@@ -47,7 +47,7 @@ export default ({
             )
             const id = file.id
             const path = file.absolutePath
-            const data = await uploadToCloudinary(id, path)
+            const data = await upload(cloudinary)(id, path)
             return {
                 id: data.public_id,
                 width: data.width,

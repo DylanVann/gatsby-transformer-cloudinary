@@ -18,6 +18,9 @@ export const commonFields = ({ cloudinary }) => {
             .map(x => x * maxWidth)
             .map(x => Math.round(x))
             .filter(x => x < width)
+            .concat(width)
+            .sort()
+
         const images = widths.map(width => ({
             url: cloudinary.url(id, {
                 format,
@@ -27,9 +30,11 @@ export const commonFields = ({ cloudinary }) => {
             }),
             width,
         }))
+
         const srcSet = images
             .map(image => `${image.url} ${Math.round(image.width)}w`)
             .join(`,\n`)
+
         return srcSet
     }
 
@@ -90,14 +95,14 @@ export const commonFields = ({ cloudinary }) => {
             resolve: getResolveSrcSet('png'),
         },
         // webp
-        srcWebP: {
+        srcWebp: {
             type: GraphQLString,
-            description: getSrcDescription('WebP'),
+            description: getSrcDescription('Webp'),
             resolve: getResolveSrc('webp'),
         },
-        srcSetWebP: {
+        srcSetWebp: {
             type: GraphQLString,
-            description: getSrcSetDescription('WebP'),
+            description: getSrcSetDescription('Webp'),
             resolve: getResolveSrcSet('webp'),
         },
         // mp4

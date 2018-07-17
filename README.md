@@ -6,6 +6,15 @@ This transformer will upload the image once with an id.
 After that depending on the types you want to extract from it it
 will apply transformations on it using Cloudinary.
 
+Features:
+- Optimize images.
+- Optimize videos.
+  - e.g. Convert video into `mp4`, `webm`, and `jpg` to create an HTML5 "GIF" with a poster.
+- Transformations happen on Cloudinary's servers.
+  - This means they are generally much faster and more likely to be cached than
+    using `gatsby-transformer-sharp`.
+  - Cloudinary also includes extra functionality like using multiple subdomains.
+
 ## Install
 
 ```bash
