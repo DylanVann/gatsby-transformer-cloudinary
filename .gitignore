@@ -2,4 +2,3 @@ node_modules
 /*.js
 !index.js
 !.babelrc.js
-yarn.lock
