@@ -18,7 +18,7 @@ Features:
 ## Install
 
 ```bash
-# Th package is currently namespaced.
+# The package is currently namespaced.
 # I don't want to take the gatsby-transformer-cloudinary name until it's clear this is a good implementation.
 npm install @dylanvann/gatsby-transformer-cloudinary
 # or
