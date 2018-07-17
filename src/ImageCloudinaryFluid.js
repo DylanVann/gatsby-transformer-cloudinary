@@ -48,13 +48,17 @@ export default ({
             const id = file.id
             const path = file.absolutePath
             const data = await upload(cloudinary)(id, path)
+            const presentationWidth = Math.min(fieldArgs.maxWidth, data.width)
+            const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
             return {
-                id: data.public_id,
+                id,
+                path,
                 width: data.width,
                 height: data.height,
                 aspectRatio: data.width / data.height,
                 maxWidth: fieldArgs.maxWidth,
                 maxHeight: fieldArgs.maxHeight,
+                sizes,
             }
         },
     }

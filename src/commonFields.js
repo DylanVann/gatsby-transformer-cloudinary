@@ -1,6 +1,7 @@
 import { GraphQLString, GraphQLFloat } from 'gatsby/graphql'
 import { fixed } from 'gatsby-plugin-sharp'
 import { oneLine } from 'common-tags'
+import { base64 } from 'sharp-base64'
 
 const getSrcDescription = format => `Image src in ${format} format.`
 const getSrcSetDescription = format => `Image srcset in ${format} format.`
@@ -50,16 +51,25 @@ export const commonFields = ({ cloudinary }) => {
         aspectRatio: {
             type: GraphQLFloat,
             description: oneLine`
-            The aspect ratio of the image (width/height).
-            Can be used to ensure there is space reserved for the image.
-            This can prevent page jank when the image loads.
-        `,
+                The aspect ratio of the image (width/height).
+                Can be used to ensure there is space reserved for the image.
+                This can prevent page jank when the image loads.
+            `,
         },
         base64: {
             type: GraphQLString,
             description: oneLine`
-            A base64 version of the image or video. Can be used as a placeholder.
-        `,
+                A base64 version of the image or video. Can be used as a placeholder.
+            `,
+            resolve: async ({ id, path }) => {
+                const data = await base64({
+                    file: {
+                        id,
+                        absolutePath: path,
+                    },
+                })
+                return data.src
+            },
         },
         /**
          * Formats.
