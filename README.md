@@ -18,9 +18,11 @@ Features:
 ## Install
 
 ```bash
-npm install gatsby-transformer-cloudinary
+# Th package is currently namespaced.
+# I don't want to take the gatsby-transformer-cloudinary name until it's clear this is a good implementation.
+npm install @dylanvann/gatsby-transformer-cloudinary
 # or
-yarn add gatsby-transformer-cloudinary
+yarn add @dylanvann/gatsby-transformer-cloudinary
 ```
 
 ## How to use
@@ -30,7 +32,7 @@ yarn add gatsby-transformer-cloudinary
 module.exports = {
   plugins: [
         {
-            resolve: 'gatsby-transformer-cloudinary',
+            resolve: '@dylanvann/gatsby-transformer-cloudinary',
             options: {
                 cloudName: '...',
                 apiKey: '...',
