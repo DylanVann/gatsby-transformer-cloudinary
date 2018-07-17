@@ -22,3 +22,19 @@ export const upload = cloudinary => (id, absolutePath) =>
             },
         ),
     )
+
+export const getData = cloudinary => (id, absolutePath) =>
+    new Promise((resolve, reject) =>
+        cloudinary.v2.uploader.explicit(
+            id,
+            {
+                image_metadata: true,
+                type: 'upload',
+                resource_type: isVideo(absolutePath) ? 'video' : 'image',
+            },
+            (error, result) => {
+                if (error) reject(error)
+                resolve(result)
+            },
+        ),
+    )

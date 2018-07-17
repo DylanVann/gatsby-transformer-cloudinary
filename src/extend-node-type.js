@@ -22,6 +22,7 @@ export default (
         getNodeAndSavePathDependency,
         reporter,
         cloudinary,
+        cloudName,
     }
 
     return {

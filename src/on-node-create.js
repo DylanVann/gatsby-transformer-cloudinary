@@ -13,6 +13,7 @@ export default ({ node, actions, createNodeId }) => {
         `gif`,
         `mp4`,
         `webm`,
+        `ogv`,
     ]
 
     if (!_.includes(extensions, node.extension)) {

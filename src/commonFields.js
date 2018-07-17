@@ -1,7 +1,7 @@
-import { GraphQLString, GraphQLFloat } from 'gatsby/graphql'
 import { fixed } from 'gatsby-plugin-sharp'
 import { oneLine } from 'common-tags'
 import { base64 } from 'sharp-base64'
+const { GraphQLString, GraphQLFloat } = require('gatsby/graphql')
 
 const getSrcDescription = format => `Image src in ${format} format.`
 const getSrcSetDescription = format => `Image srcset in ${format} format.`
@@ -129,25 +129,13 @@ export const commonFields = ({ cloudinary }) => {
         //----------------------------------------
         // video
         //----------------------------------------
-        // jpg
         srcVideoPoster: {
             type: GraphQLString,
-            description: 'A poster for the video.',
+            description: 'A poster for the video (jpg).',
         },
-        // mp4
-        srcVideoMp4: {
+        srcVideo: {
             type: GraphQLString,
-            description: getSrcDescription('MP4'),
-        },
-        // webm
-        srcVideoWebm: {
-            type: GraphQLString,
-            description: getSrcDescription('Webm'),
-        },
-        // ogg
-        srcVideoOgg: {
-            type: GraphQLString,
-            description: getSrcDescription('Ogg'),
+            description: 'The video source (mp4).',
         },
     }
 }

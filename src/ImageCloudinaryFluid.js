@@ -1,13 +1,14 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { commonFields } from './commonFields'
-import { isVideo, upload } from './cloudinary'
-import { parseVideo } from './parseVideo'
+import { upload, getData } from './cloudinary'
+import { urlExists } from './urlExists'
 
 export default ({
     pathPrefix,
     getNodeAndSavePathDependency,
     reporter,
     cloudinary,
+    cloudName,
 }) => {
     return {
         type: new GraphQLObjectType({
@@ -46,16 +47,24 @@ export default ({
             )
             const id = file.id
             const path = file.absolutePath
-            const data = await upload(cloudinary)(id, path)
+            const urlImg = `http://res.cloudinary.com/${cloudName}/image/upload/${id}`
+            const urlVideo = `http://res.cloudinary.com/${cloudName}/video/upload/${id}`
+            const imgExists = await urlExists(urlImg)
+            const videoExists = await urlExists(urlVideo)
+
+            let data
+            if (!imgExists && !videoExists) {
+                // Have to upload the image or video
+                data = await upload(cloudinary)(id, path)
+            } else {
+                // Already uploaded, we just get the metadata
+                data = await getData(cloudinary)(id, path)
+            }
+
             const presentationWidth = Math.min(fieldArgs.maxWidth, data.width)
             const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
-            const videoTag =
-                isVideo(path) &&
-                cloudinary.video(id, { width: presentationWidth })
-            let videoData = {}
-            if (videoTag) {
-                videoData = parseVideo(videoTag)
-            }
+            const srcVideoPoster = `http://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.jpg`
+            const srcVideo = `http://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.mp4`
             return {
                 // internal
                 id,
@@ -67,10 +76,8 @@ export default ({
                 height: data.height,
                 aspectRatio: data.width / data.height,
                 // video
-                srcVideoPoster: videoData.jpg,
-                srcVideoMp4: videoData.mp4,
-                srcVideoWebm: videoData.webm,
-                srcVideoOgg: videoData.ogv,
+                srcVideoPoster,
+                srcVideo,
                 sizes,
             }
         },
