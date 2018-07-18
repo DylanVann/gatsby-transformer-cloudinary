@@ -1,25 +1,15 @@
-# gatsby-transformer-cloudinary
+# @dylanvann/gatsby-transformer-cloudinary
 
 Creates `ImageCloudinary` nodes from supported image types.
 
-This transformer will upload the image once with an id.
-After that depending on the types you want to extract from it it
-will apply transformations on it using Cloudinary.
+**Features:**
 
-Features:
 - Optimize images.
 - Optimize videos.
-  - e.g. Convert video into `mp4`, `webm`, and `jpg` to create an HTML5 "GIF" with a poster.
-- Transformations happen on Cloudinary's servers.
-  - This means they are generally much faster and more likely to be cached than
-    using `gatsby-transformer-sharp`.
-  - Cloudinary also includes extra functionality like using multiple subdomains.
 
 ## Install
 
 ```bash
-# The package is currently namespaced.
-# I don't want to take the gatsby-transformer-cloudinary name until it's clear this is a good implementation.
 npm install @dylanvann/gatsby-transformer-cloudinary
 # or
 yarn add @dylanvann/gatsby-transformer-cloudinary
@@ -43,9 +33,9 @@ module.exports = {
 }
 ```
 
-## Parsing algorithm
+## How does this recognize images?
 
-It recognizes files with the following extensions as images.
+It recognizes files with the following extensions as images:
 
 - jpeg
 - jpg
@@ -58,3 +48,12 @@ It recognizes files with the following extensions as images.
 - webm
 
 Each image file is parsed into a node of type `ImageCloudinary`.
+
+## How does this interact with Cloudinary?
+
+When this encounters a query for a version of an image or video:
+
+- It checks to see if the image or video exists on cloudinary's servers based on the ID (Every image node should have a unique ID).
+- If the image is not on Cloudinary's servers then it uploads the image.
+- If the image is on Cloudinary's servers then it fetches the metadata (width, height, etc.) for the image or video.
+- After this lazy urls are generated for the image or video sizes you request.
