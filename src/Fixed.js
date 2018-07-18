@@ -1,18 +1,18 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLFloat } from 'gatsby/graphql'
 import { commonFields } from './commonFields'
-import { uploadOrGetMetadata } from './cloudinary'
+import { uploadOrGetMetadata } from 'cloudinary-promised'
 
 export default ({
     pathPrefix,
     getNodeAndSavePathDependency,
     reporter,
-    cloudinary,
+    cloudinaryConfig,
 }) => {
     return {
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFixed',
             fields: {
-                ...commonFields({ pathPrefix, reporter, cloudinary }),
+                ...commonFields({ pathPrefix, reporter }),
             },
         }),
         args: {
@@ -31,11 +31,9 @@ export default ({
             )
             const id = file.id
             const path = file.absolutePath
-            const data = uploadOrGetMetadata(id, path)
+            const data = uploadOrGetMetadata(id, path, cloudinaryConfig)
             const presentationWidth = Math.min(fieldArgs.maxWidth, data.width)
             const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
-            const srcVideoPoster = `https://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.jpg`
-            const srcVideo = `https://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.mp4`
             return {
                 id,
                 path,

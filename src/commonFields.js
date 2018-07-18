@@ -2,11 +2,12 @@ import { fixed } from 'gatsby-plugin-sharp'
 import { oneLine } from 'common-tags'
 import { base64 } from 'sharp-base64'
 const { GraphQLString, GraphQLFloat } = require('gatsby/graphql')
+import cloudinary from 'cloudinary'
 
 const getSrcDescription = format => `Image src in ${format} format.`
 const getSrcSetDescription = format => `Image srcset in ${format} format.`
 
-export const commonFields = ({ cloudinary }) => {
+export const commonFields = () => {
     const getResolveSrc = format => ({ id }) =>
         cloudinary.url(id, { format, secure: true })
 

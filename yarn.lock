@@ -854,6 +854,12 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+cloudinary-promised@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/cloudinary-promised/-/cloudinary-promised-1.0.1.tgz#aa9680c5e8e4627c412ec2cdfe5c2cf224500b2e"
+  dependencies:
+    url-exists-promise "^1.0.1"
+
 cloudinary@^1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.11.0.tgz#3f6b21961d17859f271738f452427d9899591ff1"

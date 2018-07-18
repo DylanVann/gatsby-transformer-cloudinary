@@ -11,18 +11,19 @@ export default (
         return {}
     }
 
-    cloudinary.config({
+    const cloudinaryConfig = {
         cloud_name: cloudName,
         api_key: apiKey,
         api_secret: apiSecret,
-    })
+    }
+
+    cloudinary.config(cloudinaryConfig)
 
     const nodeOptions = {
         pathPrefix,
         getNodeAndSavePathDependency,
         reporter,
-        cloudinary,
-        cloudName,
+        cloudinaryConfig,
     }
 
     return {
