@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLFloat } from 'gatsby/graphql'
 import { commonFields } from './commonFields'
-import { upload } from './cloudinary'
+import { uploadOrGetMetadata } from './cloudinary'
 
 export default ({
     pathPrefix,
@@ -25,28 +25,17 @@ export default ({
             },
         },
         resolve: async (image, fieldArgs, context) => {
-            /**
-             * This function has to provide the public_id
-             * of the uploaded image. Then other resolve functions
-             * will perform transformations on that public_id.
-             *
-             * This must also provide:
-             * - width
-             * - height
-             * - aspectRatio
-             * - sizes
-             *
-             * All the transformations will return remote urls on cloudinary.
-             */
             const file = getNodeAndSavePathDependency(
                 image.parent,
                 context.path,
             )
             const id = file.id
             const path = file.absolutePath
-            const data = await upload(cloudinary)(id, path)
+            const data = uploadOrGetMetadata(id, path)
             const presentationWidth = Math.min(fieldArgs.maxWidth, data.width)
             const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
+            const srcVideoPoster = `https://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.jpg`
+            const srcVideo = `https://res.cloudinary.com/${cloudName}/video/upload/w_${presentationWidth}/${id}.mp4`
             return {
                 id,
                 path,

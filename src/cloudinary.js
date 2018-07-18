@@ -1,3 +1,5 @@
+import cloudinary from 'cloudinary'
+
 const videoExtensions = ['mp4', 'webm']
 
 export const isVideo = path => {
@@ -8,7 +10,7 @@ export const isVideo = path => {
     return false
 }
 
-export const upload = cloudinary => (id, absolutePath) =>
+export const uploadFile = (id, absolutePath) =>
     new Promise((resolve, reject) =>
         cloudinary.v2.uploader.upload(
             absolutePath,
@@ -23,7 +25,7 @@ export const upload = cloudinary => (id, absolutePath) =>
         ),
     )
 
-export const getData = cloudinary => (id, absolutePath) =>
+export const getMetadata = (id, absolutePath) =>
     new Promise((resolve, reject) =>
         cloudinary.v2.uploader.explicit(
             id,
@@ -38,3 +40,22 @@ export const getData = cloudinary => (id, absolutePath) =>
             },
         ),
     )
+
+export const fileExists = async id => {
+    const urlImg = `http://res.cloudinary.com/${cloudName}/image/upload/${id}`
+    const urlVideo = `http://res.cloudinary.com/${cloudName}/video/upload/${id}`
+    const imgExists = await urlExists(urlImg)
+    const videoExists = await urlExists(urlVideo)
+    return imgExists || videoExists
+}
+
+export const uploadOrGetMetadata = async (id, path) => {
+    const exists = await fileExists(id)
+    if (!exists) {
+        // Have to upload the image or video
+        return uploadFile(id, path)
+    } else {
+        // Already uploaded, we just get the metadata
+        return await getMetadata(id, path)
+    }
+}
