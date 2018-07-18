@@ -1,7 +1,7 @@
 import cloudinary from 'cloudinary'
-import ImageCloudinaryOriginal from './ImageCloudinaryOriginal'
-import ImageCloudinaryFixed from './ImageCloudinaryFixed'
-import ImageCloudinaryFluid from './ImageCloudinaryFluid'
+import Original from './Original'
+import Fixed from './Fixed'
+import Fluid from './Fluid'
 
 export default (
     { type, pathPrefix, getNodeAndSavePathDependency, reporter, ...otherProps },
@@ -26,8 +26,8 @@ export default (
     }
 
     return {
-        fixed: ImageCloudinaryFixed(nodeOptions),
-        fluid: ImageCloudinaryFluid(nodeOptions),
-        original: ImageCloudinaryOriginal(nodeOptions),
+        fixed: Fixed(nodeOptions),
+        fluid: Fluid(nodeOptions),
+        original: Original(nodeOptions),
     }
 }
