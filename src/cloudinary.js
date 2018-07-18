@@ -1,4 +1,5 @@
 import cloudinary from 'cloudinary'
+import { urlExists } from 'url-exists-promise'
 
 const videoExtensions = ['mp4', 'webm']
 
