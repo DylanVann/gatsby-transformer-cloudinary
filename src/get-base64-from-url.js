@@ -1,4 +1,4 @@
-const axios = require(`axios`)
+import axios from 'axios'
 
 export const getBase64FromUrl = async url => {
     const response = await axios({
