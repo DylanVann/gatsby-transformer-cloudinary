@@ -82,7 +82,7 @@ Each image file is parsed into a node of type `ImageCloudinary`.
 
 When this encounters a query for a version of an image or video:
 
-- An ID is generated for the media based on an MD5 hash of its contents and the filename (better for SEO and will help you recognize it).
+- An ID is generated for the media based on an MD5 hash of its contents.
 - We check if the media is already on Cloudinary under that ID.
 - If it is not we upload it.
 - Either way we get metadata for it including the dimensions.

@@ -1,10 +1,11 @@
 import { GraphQLObjectType, GraphQLInt, GraphQLString } from 'gatsby/graphql'
 import { commonFields } from './commonFields'
-import { uploadOrGetMetadata } from 'cloudinary-promised'
+import { uploadOrGetMetadata, isVideo } from 'cloudinary-promised'
 import { getSrcSet } from './getSrcSet'
 import { getResponsiveWidths } from './getResponsiveWidths'
 import { oneLine } from 'common-tags'
 import md5File from 'md5-file/promise'
+import { getBase64FromUrl } from './get-base64-from-url'
 
 export default ({
     pathPrefix,
@@ -51,14 +52,10 @@ export default ({
                 image.parent,
                 context.path,
             )
-            const id = file.id
             const path = file.absolutePath
-            console.log('-----------------------------------------')
-            console.log(file)
-            console.log('-----------------------------------------')
-            return null
-            const fileHash = await md5File(path)
-            const data = uploadOrGetMetadata(id, path, cloudinaryConfig)
+            // Use an md5 hash of the file as the ID.
+            const id = await md5File(path)
+            const data = await uploadOrGetMetadata(id, path, cloudinaryConfig)
             const width = Math.min(fieldArgs.maxWidth, data.width)
             const maxWidth = fieldArgs.maxWidth
             const sizes = `(max-width: ${width}px) 100vw, ${width}px`
@@ -74,14 +71,22 @@ export default ({
                     cloudinaryConfig.cloud_name
                 }/video/upload/w_${width}/${id}.mp4`
 
+                // Get the srcSet.
                 const videoSrcSetImages = widths.map(w => ({
                     width: w,
                     src: `https://res.cloudinary.com/${
                         cloudinaryConfig.cloud_name
                     }/video/upload/w_${w}/${id}.jpg`,
                 }))
-
                 const videoPosterSrcSet = getSrcSet(videoSrcSetImages)
+
+                // Get base64.
+                const videoPosterBase64Url = `https://res.cloudinary.com/${
+                    cloudinaryConfig.cloud_name
+                }/video/upload/w_10/${id}.jpg`
+                const videoPosterBase64 = await getBase64FromUrl(
+                    videoPosterBase64Url,
+                )
 
                 const videoPosterData = {
                     videoPosterSrc,
@@ -101,14 +106,20 @@ export default ({
                     cloudinaryConfig.cloud_name
                 }/image/upload/w_${width}/${id}`
 
+                // Get the srcSet.
                 const imgSrcSetImages = widths.map(w => ({
                     width: w,
                     src: `https://res.cloudinary.com/${
                         cloudinaryConfig.cloud_name
                     }/image/upload/w_${w}/${id}`,
                 }))
-
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
+
+                // Get base64.
+                const imgBase64Url = `https://res.cloudinary.com/${
+                    cloudinaryConfig.cloud_name
+                }/image/upload/w_10/${id}.jpg`
+                const imgBase64 = await getBase64FromUrl(imgBase64Url)
 
                 const imgData = {
                     imgSrc,

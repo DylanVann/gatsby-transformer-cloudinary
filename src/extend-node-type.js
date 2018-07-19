@@ -1,6 +1,5 @@
 import cloudinary from 'cloudinary'
 import Original from './Original'
-import Fixed from './Fixed'
 import Fluid from './Fluid'
 
 export default (
@@ -27,7 +26,6 @@ export default (
     }
 
     return {
-        fixed: Fixed(nodeOptions),
         fluid: Fluid(nodeOptions),
         original: Original(nodeOptions),
     }

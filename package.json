@@ -7,6 +7,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cloudinary": "^1.11.0",
     "cloudinary-promised": "^1.0.1",
     "common-tags": "^1.8.0",
