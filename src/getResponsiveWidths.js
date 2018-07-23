@@ -8,7 +8,7 @@ export const getResponsiveWidths = (maxWidth, width) =>
         // Getting widths at different factors.
         .map(factor => Math.round(factor * maxWidth))
         // Filtering out widths greater than our original width.
-        .filter(w => w > width)
+        .filter(w => w < width)
         // Add the original width so we will have the image at max resolution.
         .concat(width)
         // Sort it so that this will look nice if we're debugging later.
