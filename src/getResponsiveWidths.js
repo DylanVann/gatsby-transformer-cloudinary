@@ -12,4 +12,6 @@ export const getResponsiveWidths = (maxWidth, width) =>
         // Add the original width so we will have the image at max resolution.
         .concat(width)
         // Sort it so that this will look nice if we're debugging later.
-        .sort()
+        // It's also important that this sorts from lowest to highest.
+        // Since that is how srcset is evaluated.
+        .sort((a, b) => a - b)
