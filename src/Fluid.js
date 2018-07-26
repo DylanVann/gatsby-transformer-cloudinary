@@ -17,7 +17,88 @@ export default ({
         type: new GraphQLObjectType({
             name: 'ImageCloudinaryFluid',
             fields: {
-                ...commonFields,
+                width: {
+                    type: GraphQLFloat,
+                    description: 'The original width of the media.',
+                },
+                height: {
+                    type: GraphQLFloat,
+                    description: 'The original height of the media.',
+                },
+                aspectRatio: {
+                    type: GraphQLFloat,
+                    description: oneLine`
+                        The aspect ratio of the media (width/height).
+                        Can be used to ensure there is space reserved for the media.
+                        This can prevent page jank when the media loads.
+                    `,
+                },
+                // ----------------------------------------
+                // img
+                // ----------------------------------------
+                imgSrc: {
+                    type: GraphQLString,
+                    description: oneLine`
+                        src for the image.
+                    `,
+                },
+                imgSrcSet: {
+                    type: GraphQLString,
+                    description: oneLine`
+                        srcSet for the image.
+                    `,
+                },
+                imgSrcWebP: {
+                    type: GraphQLString,
+                    description: oneLine`
+                        src for the image (WebP).
+                    `,
+                },
+                imgSrcSetWebP: {
+                    type: GraphQLString,
+                    description: oneLine`
+                        srcSet for the image (WebP).
+                    `,
+                },
+                imgBase64: {
+                    type: GraphQLString,
+                    description: oneLine`
+                        A base64 version of the image.
+                    `,
+                },
+                // ----------------------------------------
+                // video
+                //
+                // no srcSet or base64
+                // as those do not make sense for videos
+                // ----------------------------------------
+                videoSrc: {
+                    type: GraphQLString,
+                    description: oneLine`
+                       src for the video.
+                    `,
+                },
+                // ----------------------------------------
+                // videoPoster
+                // ----------------------------------------
+                videoPosterSrc: {
+                    type: GraphQLString,
+                    description: oneLine`
+                       src for the poster.
+                    `,
+                },
+                videoPosterSrcSet: {
+                    type: GraphQLString,
+                    description: oneLine`
+                       srcSet for the poster.
+                    `,
+                },
+                videoPosterBase64: {
+                    type: GraphQLString,
+                    description: oneLine`
+                       A base64 version of the poster.
+                    `,
+                },
                 sizes: { type: GraphQLString },
             },
         }),
@@ -105,10 +186,12 @@ export default ({
             } else {
                 const format = fieldArgs.toImgFormat || '.jpg'
 
+                // Get the src.
                 const imgBaseUrl = `https://res.cloudinary.com/${
                     cloudinaryConfig.cloud_name
                 }/image/upload/w_${width}/${id}`
-                const imgSrc = imgBaseUrl + format
+                const imgSrc = `${imgBaseUrl}.${format}`
+                const imgSrcWebP = imgBaseUrl + '.webp'
 
                 // Get the srcSet.
                 const imgSrcSetBaseUrls = widths.map(w => ({
@@ -117,8 +200,14 @@ export default ({
                         cloudinaryConfig.cloud_name
                     }/image/upload/w_${w}/${id}`,
                 }))
-                const imgSrcSetImages = imgSrcSetBaseUrls.map(v => v + format)
+                const imgSrcSetImages = imgSrcSetBaseUrls.map(
+                    v => `${v}.${format}`,
+                )
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
+                const imgSrcSetWebPImages = imgSrcSetBaseUrls.map(
+                    v => `${v}.webp`,
+                )
+                const imgSrcSetWebP = getSrcSet(imgSrcSetWebPImages)
 
                 // Get base64.
                 const imgBase64Url = `https://res.cloudinary.com/${
@@ -129,6 +218,8 @@ export default ({
                 const imgData = {
                     imgSrc,
                     imgSrcSet,
+                    imgSrcWebP,
+                    imgSrcSetWebP,
                     imgBase64,
                 }
 
