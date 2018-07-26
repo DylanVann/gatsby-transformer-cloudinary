@@ -3,8 +3,7 @@ import {
     GraphQLInt,
     GraphQLString,
     GraphQLFloat,
-} from 'gatsby/graphql'
-import { commonFields } from './commonFields'
+} from 'graphql'
 import { uploadOrGetMetadata, isVideo } from 'cloudinary-promised'
 import { getSrcSet } from './getSrcSet'
 import { getResponsiveWidths } from './getResponsiveWidths'
@@ -141,7 +140,10 @@ export default ({
             const path = file.absolutePath
             // Use an md5 hash of the file as the ID.
             const id = await md5File(path)
-            const data = await uploadOrGetMetadata(id, path, cloudinaryConfig)
+            const data = await uploadOrGetMetadata(id, path, cloudinaryConfig, {
+                colors: true,
+            })
+            console.log(data)
             const width = data.width
             const maxWidth = fieldArgs.maxWidth
             const presentationWidth = Math.min(width, maxWidth)

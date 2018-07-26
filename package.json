@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cloudinary": "^1.11.0",
-    "cloudinary-promised": "^1.0.1",
+    "cloudinary-promised": "^1.0.3",
     "common-tags": "^1.8.0",
     "fs-extra": "^4.0.2",
     "lodash": "^4.17.10",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.0.0-beta.53",
     "@babel/runtime": "^7.0.0-beta.54",
     "cross-env": "^5.1.4",
+    "gatsby": "2.0.0-beta.13",
     "prettier": "^1.13.7"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp#readme",
