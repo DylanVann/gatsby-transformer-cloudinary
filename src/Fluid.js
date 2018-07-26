@@ -103,17 +103,21 @@ export default ({
                     ...videoData,
                 }
             } else {
-                const imgSrc = `https://res.cloudinary.com/${
+                const format = fieldArgs.toImgFormat || '.jpg'
+
+                const imgBaseUrl = `https://res.cloudinary.com/${
                     cloudinaryConfig.cloud_name
                 }/image/upload/w_${width}/${id}`
+                const imgSrc = imgBaseUrl + format
 
                 // Get the srcSet.
-                const imgSrcSetImages = widths.map(w => ({
+                const imgSrcSetBaseUrls = widths.map(w => ({
                     width: w,
                     src: `https://res.cloudinary.com/${
                         cloudinaryConfig.cloud_name
                     }/image/upload/w_${w}/${id}`,
                 }))
+                const imgSrcSetImages = imgSrcSetBaseUrls.map(v => v + format)
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
 
                 // Get base64.
