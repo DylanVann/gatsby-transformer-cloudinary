@@ -1,4 +1,9 @@
-import { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLFloat } from 'gatsby/graphql'
+import {
+    GraphQLObjectType,
+    GraphQLInt,
+    GraphQLString,
+    GraphQLFloat,
+} from 'gatsby/graphql'
 import { commonFields } from './commonFields'
 import { uploadOrGetMetadata, isVideo } from 'cloudinary-promised'
 import { getSrcSet } from './getSrcSet'
@@ -184,14 +189,14 @@ export default ({
                     ...videoData,
                 }
             } else {
-                const format = fieldArgs.toImgFormat || '.jpg'
+                const format = fieldArgs.toImgFormat || 'jpg'
 
                 // Get the src.
                 const imgBaseUrl = `https://res.cloudinary.com/${
                     cloudinaryConfig.cloud_name
                 }/image/upload/w_${width}/${id}`
                 const imgSrc = `${imgBaseUrl}.${format}`
-                const imgWebPSrc = imgBaseUrl + '.webp'
+                const imgWebPSrc = `${imgBaseUrl}.webp`
 
                 // Get the srcSet.
                 const imgSrcSetBaseUrls = widths.map(w => ({
@@ -200,10 +205,12 @@ export default ({
                         cloudinaryConfig.cloud_name
                     }/image/upload/w_${w}/${id}`,
                 }))
+                // imgSrcSet
                 const imgSrcSetImages = imgSrcSetBaseUrls.map(
                     v => `${v}.${format}`,
                 )
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
+                // imgWebPSrcSet
                 const imgWebPSrcSetImages = imgSrcSetBaseUrls.map(
                     v => `${v}.webp`,
                 )
