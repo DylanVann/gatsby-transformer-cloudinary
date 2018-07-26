@@ -206,14 +206,16 @@ export default ({
                     }/image/upload/w_${w}/${id}`,
                 }))
                 // imgSrcSet
-                const imgSrcSetImages = imgSrcSetBaseUrls.map(
-                    v => `${v}.${format}`,
-                )
+                const imgSrcSetImages = imgSrcSetBaseUrls.map(v => ({
+                    ...v,
+                    src: `${v.src}.${format}`,
+                }))
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
                 // imgWebPSrcSet
-                const imgWebPSrcSetImages = imgSrcSetBaseUrls.map(
-                    v => `${v}.webp`,
-                )
+                const imgWebPSrcSetImages = imgSrcSetBaseUrls.map(v => ({
+                    ...v,
+                    src: `${v.src}.webp`,
+                }))
                 const imgWebPSrcSet = getSrcSet(imgWebPSrcSetImages)
 
                 // Get base64.
