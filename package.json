@@ -1,7 +1,7 @@
 {
   "name": "@dylanvann/gatsby-transformer-cloudinary",
   "description": "Gatsby transformer plugin for images using Cloudinary",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "author": "Dylan Vann <dylan@dylanvann.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
