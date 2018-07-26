@@ -56,9 +56,10 @@ export default ({
             // Use an md5 hash of the file as the ID.
             const id = await md5File(path)
             const data = await uploadOrGetMetadata(id, path, cloudinaryConfig)
-            const width = Math.min(fieldArgs.maxWidth, data.width)
+            const width = data.width
             const maxWidth = fieldArgs.maxWidth
-            const sizes = `(max-width: ${width}px) 100vw, ${width}px`
+            const presentationWidth = Math.min(width, maxWidth)
+            const sizes = `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`
             const widths = getResponsiveWidths(maxWidth, width)
 
             let mediaData
