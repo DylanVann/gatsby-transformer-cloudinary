@@ -48,13 +48,13 @@ export default ({
                         srcSet for the image.
                     `,
                 },
-                imgSrcWebP: {
+                imgWebPSrc: {
                     type: GraphQLString,
                     description: oneLine`
                         src for the image (WebP).
                     `,
                 },
-                imgSrcSetWebP: {
+                imgWebPSrcSet: {
                     type: GraphQLString,
                     description: oneLine`
                         srcSet for the image (WebP).
@@ -191,7 +191,7 @@ export default ({
                     cloudinaryConfig.cloud_name
                 }/image/upload/w_${width}/${id}`
                 const imgSrc = `${imgBaseUrl}.${format}`
-                const imgSrcWebP = imgBaseUrl + '.webp'
+                const imgWebPSrc = imgBaseUrl + '.webp'
 
                 // Get the srcSet.
                 const imgSrcSetBaseUrls = widths.map(w => ({
@@ -204,10 +204,10 @@ export default ({
                     v => `${v}.${format}`,
                 )
                 const imgSrcSet = getSrcSet(imgSrcSetImages)
-                const imgSrcSetWebPImages = imgSrcSetBaseUrls.map(
+                const imgWebPSrcSetImages = imgSrcSetBaseUrls.map(
                     v => `${v}.webp`,
                 )
-                const imgSrcSetWebP = getSrcSet(imgSrcSetWebPImages)
+                const imgWebPSrcSet = getSrcSet(imgSrcSetWebPImages)
 
                 // Get base64.
                 const imgBase64Url = `https://res.cloudinary.com/${
@@ -218,8 +218,8 @@ export default ({
                 const imgData = {
                     imgSrc,
                     imgSrcSet,
-                    imgSrcWebP,
-                    imgSrcSetWebP,
+                    imgWebPSrc,
+                    imgWebPSrcSet,
                     imgBase64,
                 }
 
