@@ -207,7 +207,7 @@ export default ({
                 const imgWebPSrcSetImages = imgSrcSetBaseUrls.map(
                     v => `${v}.webp`,
                 )
-                const imgWebPSrcSet = getSrcSet(imgSrcSetWebPImages)
+                const imgWebPSrcSet = getSrcSet(imgWebPSrcSetImages)
 
                 // Get base64.
                 const imgBase64Url = `https://res.cloudinary.com/${
