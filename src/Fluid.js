@@ -6,6 +6,7 @@ import { getResponsiveWidths } from './getResponsiveWidths'
 import { oneLine } from 'common-tags'
 import md5File from 'md5-file/promise'
 import { getBase64FromUrl } from './get-base64-from-url'
+const { GraphQLString, GraphQLFloat } = require('gatsby/graphql')
 
 export default ({
     pathPrefix,
