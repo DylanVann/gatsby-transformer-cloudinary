@@ -2746,6 +2746,10 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -7271,6 +7275,14 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-fast-image@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/react-fast-image/-/react-fast-image-0.0.18.tgz#09034b6272c7747593e87d66147eb108acb805ea"
+  dependencies:
+    classnames "^2.2.6"
+    react-img-tag "^0.0.2"
+    react-video-tag "^0.0.10"
+
 react-hot-loader@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.4.tgz#4f9bdd55bb20d77a6ae8931fa1c187e5f0ce6279"
@@ -7281,6 +7293,10 @@ react-hot-loader@^4.1.0:
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
+
+react-img-tag@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-img-tag/-/react-img-tag-0.0.2.tgz#b666147fe979ccf183d4bccb0d9768166c755c21"
 
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -7308,6 +7324,10 @@ react-router@^4.1.1, react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
+
+react-video-tag@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/react-video-tag/-/react-video-tag-0.0.10.tgz#eace2386a77cd17351a9cac7497856aa7d4be25d"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

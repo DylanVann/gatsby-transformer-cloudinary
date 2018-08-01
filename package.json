@@ -13,7 +13,8 @@
     "common-tags": "^1.8.0",
     "fs-extra": "^4.0.2",
     "lodash": "^4.17.10",
-    "md5-file": "^4.0.0"
+    "md5-file": "^4.0.0",
+    "react-fast-image": "^0.0.18"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.51",
