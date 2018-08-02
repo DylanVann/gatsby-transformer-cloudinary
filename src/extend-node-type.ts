@@ -15,8 +15,6 @@ export default (
         api_secret: apiSecret,
     }
 
-    cloudinary.config(cloudinaryConfig)
-
     const nodeOptions = {
         pathPrefix,
         getNodeAndSavePathDependency,

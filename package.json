@@ -7,13 +7,8 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "cloudinary": "^1.11.0",
-    "cloudinary-promised": "^1.0.3",
+    "@dylanvann/gatsby-cloudinary": "^0.0.3",
     "common-tags": "^1.8.0",
-    "fs-extra": "^4.0.2",
-    "lodash": "^4.17.10",
-    "md5-file": "^4.0.0",
     "react-fast-image": "^0.0.18"
   },
   "devDependencies": {
@@ -21,10 +16,13 @@
     "@babel/core": "7.0.0-beta.51",
     "@babel/plugin-transform-runtime": "^7.0.0-beta.53",
     "@babel/preset-env": "^7.0.0-beta.53",
+    "@babel/preset-typescript": "^7.0.0-beta.55",
     "@babel/runtime": "^7.0.0-beta.54",
+    "@types/lodash": "^4.14.115",
     "cross-env": "^5.1.4",
     "gatsby": "2.0.0-beta.13",
-    "prettier": "^1.13.7"
+    "prettier": "^1.13.7",
+    "typescript": "^3.0.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp#readme",
   "keywords": [
@@ -40,7 +38,7 @@
   "repository": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp",
   "scripts": {
     "format": "prettier --write 'src/**/*.js' '*.js'",
-    "build": "babel src --out-dir . --ignore **/__tests__",
+    "build": "babel --extensions '.ts' src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "watch": "babel -w src --out-dir . --ignore **/__tests__"
   }

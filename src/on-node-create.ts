@@ -1,22 +1,23 @@
-import _ from 'lodash'
+const extensions = [
+    `jpeg`,
+    `jpg`,
+    `png`,
+    `webp`,
+    `tif`,
+    `tiff`,
+    `gif`,
+    `mp4`,
+    `webm`,
+    `ogv`,
+].reduce((acc: any, v: string) => {
+    acc[v] = v
+    return acc
+}, {})
 
 export default ({ node, actions, createNodeId }) => {
     const { createNode, createParentChildLink } = actions
 
-    const extensions = [
-        `jpeg`,
-        `jpg`,
-        `png`,
-        `webp`,
-        `tif`,
-        `tiff`,
-        `gif`,
-        `mp4`,
-        `webm`,
-        `ogv`,
-    ]
-
-    if (!_.includes(extensions, node.extension)) {
+    if (!extensions[node.extension]) {
         return
     }
 
