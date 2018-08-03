@@ -1,7 +1,7 @@
 {
   "name": "@dylanvann/gatsby-transformer-cloudinary",
   "description": "Gatsby transformer plugin for images using Cloudinary",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "author": "Dylan Vann <dylan@dylanvann.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
@@ -38,7 +38,7 @@
   "repository": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp",
   "scripts": {
     "format": "prettier --write 'src/**/*.js' '*.js'",
-    "build": "babel --extensions '.ts' src --out-dir . --ignore **/__tests__",
+    "build": "babel --extensions '.ts' src --out-dir .",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "watch": "babel -w src --out-dir . --ignore **/__tests__"
   }
