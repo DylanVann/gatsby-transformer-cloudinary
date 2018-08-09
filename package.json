@@ -37,7 +37,7 @@
   },
   "repository": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp",
   "scripts": {
-    "format": "prettier --write 'src/**/*.js' '*.js'",
+    "format": "prettier --write 'src/**/*.ts' '*.js'",
     "build": "babel --extensions '.ts' src --out-dir .",
     "test": "exit 0",
     "prepare": "cross-env NODE_ENV=production npm run build",

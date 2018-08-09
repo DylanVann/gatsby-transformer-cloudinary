@@ -127,7 +127,14 @@ export default ({
             )
             const path = file.absolutePath
             const maxWidth = fieldArgs.maxWidth
-            const props = getData({ path, config: cloudinaryConfig, maxWidth})
+            const props = getData({
+                path,
+                maxWidth,
+                config: cloudinaryConfig,
+                toImgFormat: fieldArgs.toImgFormat,
+                toVideoFormat: fieldArgs.toVideoFormat,
+                toVideoPosterFormat: fieldArgs.toVideoPosterFormat,
+            })
             return props
         },
     }
