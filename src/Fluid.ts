@@ -127,7 +127,11 @@ export default ({
                 description: 'Format to convert videoPoster to.',
             },
         },
-        resolve: async (image: { parent: any }, fieldArgs: Args, context: { path: string }) => {
+        resolve: async (
+            image: { parent: any },
+            fieldArgs: Args,
+            context: { path: string },
+        ) => {
             const file = getNodeAndSavePathDependency(
                 image.parent,
                 context.path,
