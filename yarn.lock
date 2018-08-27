@@ -1253,13 +1253,13 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@dylanvann/gatsby-cloudinary@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@dylanvann/gatsby-cloudinary/-/gatsby-cloudinary-0.0.9.tgz#8132db57f9e874c0e1a5b070090cfb4448d09304"
+"@dylanvann/gatsby-cloudinary@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@dylanvann/gatsby-cloudinary/-/gatsby-cloudinary-0.0.10.tgz#a209a737e82c13b9963f248bdbef24066dac9a69"
   dependencies:
     axios "^0.18.0"
     classnames "^2.2.6"
-    cloudinary-promised "^1.0.9"
+    cloudinary-promised "^1.0.10"
     md5-file "^4.0.0"
     react-fast-image "^0.0.21"
     react-img-tag "^0.0.2"
@@ -2851,9 +2851,9 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
 
-cloudinary-promised@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/cloudinary-promised/-/cloudinary-promised-1.0.9.tgz#ab757a848640ac445dbcd03c9a43d5d7672b15f1"
+cloudinary-promised@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/cloudinary-promised/-/cloudinary-promised-1.0.10.tgz#76bc0ae24850f83848d6f8058fe947eeda136e2a"
   dependencies:
     cloudinary "^1.11.0"
     url-exists-promise "^1.0.1"
