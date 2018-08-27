@@ -7,6 +7,13 @@ import {
 import { oneLine } from 'common-tags'
 import { getData } from '@dylanvann/gatsby-cloudinary'
 
+interface Args {
+    maxWidth: number
+    toImgFormat?: 'jpg' | 'png'
+    toVideoFormat?: 'mp4'
+    toVideoPosterFormat?: 'jpg' | 'png'
+}
+
 export default ({
     pathPrefix,
     getNodeAndSavePathDependency,
@@ -120,7 +127,7 @@ export default ({
                 description: 'Format to convert videoPoster to.',
             },
         },
-        resolve: async (image, fieldArgs, context) => {
+        resolve: async (image: { parent: any }, fieldArgs: Args, context: { path: string }) => {
             const file = getNodeAndSavePathDependency(
                 image.parent,
                 context.path,
@@ -128,7 +135,7 @@ export default ({
             const path = file.absolutePath
             const maxWidth = fieldArgs.maxWidth
             try {
-                const props = getData({
+                const props = await getData({
                     path,
                     maxWidth,
                     config: cloudinaryConfig,

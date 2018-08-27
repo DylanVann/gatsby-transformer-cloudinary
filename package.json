@@ -18,6 +18,8 @@
     "@babel/preset-env": "^7.0.0-beta.53",
     "@babel/preset-typescript": "^7.0.0-beta.55",
     "@babel/runtime": "^7.0.0-beta.54",
+    "@types/common-tags": "^1.4.0",
+    "@types/graphql": "^0.13.4",
     "@types/lodash": "^4.14.115",
     "cross-env": "^5.1.4",
     "gatsby": "2.0.0-beta.13",
