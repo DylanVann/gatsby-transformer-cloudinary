@@ -14,7 +14,13 @@ const extensions = [
     return acc
 }, {})
 
-export default ({ node, actions, createNodeId }) => {
+interface Options {
+    node: any
+    actions: any
+    createNodeId: any
+}
+
+export default ({ node, actions, createNodeId }: Options) => {
     const { createNode, createParentChildLink } = actions
 
     if (!extensions[node.extension]) {
