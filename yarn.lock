@@ -1253,17 +1253,18 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@dylanvann/gatsby-cloudinary@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@dylanvann/gatsby-cloudinary/-/gatsby-cloudinary-0.0.10.tgz#a209a737e82c13b9963f248bdbef24066dac9a69"
+"@dylanvann/gatsby-cloudinary@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@dylanvann/gatsby-cloudinary/-/gatsby-cloudinary-0.0.12.tgz#b7364075d233ff2c9f97babd26d0693d9c69627b"
   dependencies:
     axios "^0.18.0"
     classnames "^2.2.6"
-    cloudinary-promised "^1.0.10"
+    cloudinary "^1.11.0"
     md5-file "^4.0.0"
     react-fast-image "^0.0.21"
     react-img-tag "^0.0.2"
     react-video-tag "^0.0.10"
+    url-exists-promise "^1.0.2"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -2850,13 +2851,6 @@ clone@2.1.1:
 clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
-
-cloudinary-promised@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/cloudinary-promised/-/cloudinary-promised-1.0.10.tgz#76bc0ae24850f83848d6f8058fe947eeda136e2a"
-  dependencies:
-    cloudinary "^1.11.0"
-    url-exists-promise "^1.0.1"
 
 cloudinary@^1.11.0:
   version "1.11.0"
@@ -8802,9 +8796,9 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
 
-url-exists-promise@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/url-exists-promise/-/url-exists-promise-1.0.1.tgz#e8b9de70133a4298f1d42e25abe5e7f5eec3da92"
+url-exists-promise@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/url-exists-promise/-/url-exists-promise-1.0.2.tgz#deec077c1a77ca4acc9e3212e1e7153d06d57a3a"
 
 url-join@^4.0.0:
   version "4.0.0"

@@ -7,7 +7,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@dylanvann/gatsby-cloudinary": "^0.0.10",
+    "@dylanvann/gatsby-cloudinary": "^0.0.12",
     "common-tags": "^1.8.0",
     "react-fast-image": "^0.0.18"
   },
