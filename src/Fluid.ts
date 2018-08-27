@@ -132,13 +132,13 @@ export default ({
             fieldArgs: Args,
             context: { path: string },
         ) => {
-            const file = getNodeAndSavePathDependency(
-                image.parent,
-                context.path,
-            )
-            const path = file.absolutePath
-            const maxWidth = fieldArgs.maxWidth
             try {
+                const file = getNodeAndSavePathDependency(
+                    image.parent,
+                    context.path,
+                )
+                const path = file.absolutePath
+                const maxWidth = fieldArgs.maxWidth
                 const props = await getData({
                     path,
                     maxWidth,
